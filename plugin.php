@@ -7,6 +7,7 @@ use App\Facades\XeFrontend;
 use App\Facades\XePlugin;
 use App\Facades\XePresenter;
 use Route;
+use Xpressengine\Config\ConfigEntity;
 use Xpressengine\Config\ConfigManager;
 use Xpressengine\Http\Request;
 use Xpressengine\Plugin\AbstractPlugin;
@@ -24,7 +25,7 @@ class Plugin extends AbstractPlugin
             Route::get('/', ['uses' => function () {
                 $configManager = app('xe.config');
 
-                $config = $configManager->get(self::getId());
+                $config = $configManager->get(self::getId()) ?? new ConfigEntity([]);
 
                 $url = $config->get('url', '');
                 $auth = $config->get('auth', '');
