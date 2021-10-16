@@ -15,7 +15,7 @@ class IncompleteCollabListWidget extends AbstractWidget
     {
         $client = new Client();
 
-        $res = $client->get(VegaUtils::getUrl('/api/v1/collabs'), [
+        $res = $client->get(VegaUtils::getUrl('/api/v1/collabs?user=true'), [
             'headers' => [
                 'Authorization' => VegaUtils::getConfig()->get('auth')
             ]

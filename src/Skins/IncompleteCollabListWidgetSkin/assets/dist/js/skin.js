@@ -11,8 +11,15 @@
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var swiper__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! swiper */ "./node_modules/swiper/swiper.esm.js");
 
-new swiper__WEBPACK_IMPORTED_MODULE_0__["default"]('.incomplete-collab-list-container', {
-  slidesPerView: 3
+document.querySelectorAll('.incomplete-collab-list-container').forEach(
+/**
+ * @param el {HTMLElement}
+ */
+function (el) {
+  new swiper__WEBPACK_IMPORTED_MODULE_0__["default"](el, {
+    slidesPerView: 3,
+    spaceBetween: 10
+  });
 });
 
 /***/ }),

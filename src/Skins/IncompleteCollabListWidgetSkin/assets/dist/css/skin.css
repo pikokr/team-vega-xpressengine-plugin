@@ -624,11 +624,20 @@ button.swiper-pagination-bullet {
   overflow: hidden;
 }
 
+@font-face {
+  font-family: "Cafe24OhSquareair";
+  src: url("/plugins/team_vega/assets/fonts/Cafe24Ohsquareair.ttf") format("truetype");
+  unicode-range: U+0041-005A, U+0061-007A, U+0030-0039, U+AC00-D7A3;
+}
 .incomplete-collab-list-container .slide-item .slide-content-container {
   padding-bottom: 56.25%;
   position: relative;
+  background-position: center;
+  background-size: cover;
 }
 .incomplete-collab-list-container .slide-item .slide-content-container .slide-content {
+  -webkit-backdrop-filter: brightness(0.7) blur(2px);
+          backdrop-filter: brightness(0.7) blur(2px);
   position: absolute;
   width: 100%;
   height: 100%;
@@ -640,8 +649,18 @@ button.swiper-pagination-bullet {
   align-items: center;
   padding: 10px;
   box-sizing: border-box;
+  color: #fff;
+  flex-direction: column;
+  font-family: Cafe24OhSquareair, sans-serif;
+  gap: 10px;
 }
 .incomplete-collab-list-container .slide-item .slide-content-container .slide-content .collab-title {
   font-size: 24px;
   text-align: center;
+}
+.incomplete-collab-list-container .slide-item .slide-content-container .slide-content .collab-details {
+  display: flex;
+  gap: 10px;
+  font-size: 16px;
+  justify-content: space-around;
 }
