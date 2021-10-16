@@ -1,36 +1,48 @@
 {
-  "name": "xpressengine-plugin/team_vega",
-  "description": "This Package is Xpressengine Plugin - TeamVega plugin.",
-  "keywords": [
-    "xpressengine",
-    "plugin"
-  ],
-  "license": "LGPL-3.0-or-later",
-  "version": "1.0.0",
-  "type": "xpressengine-plugin",
-  "support": {
-    "email": "input@your.email"
-  },
-  "authors": [
-    {
-      "name": "input your name",
-      "email": "input@your.email",
-      "homepage": "http://input.your.site",
-      "role": "Developer"
+    "name": "xpressengine-plugin/team_vega",
+    "description": "This Package is Xpressengine Plugin - TeamVega plugin.",
+    "keywords": [
+        "xpressengine",
+        "plugin"
+    ],
+    "license": "LGPL-3.0-or-later",
+    "version": "1.0.0",
+    "type": "xpressengine-plugin",
+    "support": {
+        "email": "parangee9706@gmail.com"
+    },
+    "authors": [
+        {
+            "name": "pikokr",
+            "email": "parangee9706@gmail.com",
+            "homepage": "https://pikokr.dev",
+            "role": "Developer"
+        }
+    ],
+    "extra": {
+        "xpressengine": {
+            "title": "TeamVega plugin",
+            "component": {
+                "widget/team_vega@incomplete_collab_list_widget": {
+                    "class": "Pikokr\\XePlugin\\TeamVega\\Components\\Widgets\\IncompleteCollabList\\IncompleteCollabListWidget",
+                    "name": "진행중인 합작 목록",
+                    "description": "진행중인 합작 목록 위젯"
+                },
+                "widget/team_vega@incomplete_collab_list_widget/skin/team_vega@incomplete_collab_list_widget_skin": {
+                    "name": "IncompleteCollabListWidgetSkin skin",
+                    "description": "The skin supported by Team_vega plugin.",
+                    "class": "Pikokr\\XePlugin\\TeamVega\\Skins\\IncompleteCollabListWidgetSkin\\IncompleteCollabListWidgetSkinSkin"
+                }
+            }
+        }
+    },
+    "require": {
+        "xpressengine/xpressengine": "~3.0.14",
+        "ext-json": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Pikokr\\XePlugin\\TeamVega\\": "src/"
+        }
     }
-  ],
-  "extra": {
-    "xpressengine": {
-      "title": "TeamVega plugin",
-      "component": {}
-    }
-  },
-  "require": {
-    "xpressengine/xpressengine": "~3.0.14"
-  },
-  "autoload": {
-    "psr-4": {
-      "Pikokr\\XePlugin\\TeamVega\\": "src/"
-    }
-  }
 }

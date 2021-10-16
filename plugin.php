@@ -1,7 +1,14 @@
 <?php
+
 namespace Pikokr\XePlugin\TeamVega;
 
+use App\Facades\XeDB;
+use App\Facades\XeFrontend;
+use App\Facades\XePlugin;
+use App\Facades\XePresenter;
 use Route;
+use Xpressengine\Config\ConfigManager;
+use Xpressengine\Http\Request;
 use Xpressengine\Plugin\AbstractPlugin;
 
 class Plugin extends AbstractPlugin
@@ -13,24 +20,46 @@ class Plugin extends AbstractPlugin
      */
     public function boot()
     {
-        // implement code
+        Route::settings(static::getId(), function () {
+            Route::get('/', ['uses' => function () {
+                $configManager = app('xe.config');
 
-        $this->route();
+                $config = $configManager->get(self::getId());
+
+                $url = $config->get('url', '');
+                $auth = $config->get('auth', '');
+
+                return XePresenter::make(static::view('views.settings'), [
+                    'url' => $url,
+                    'auth' => $auth
+                ]);
+            }, 'as' => 'team_vega.settings']);
+            Route::post('/', ['uses' => function (Request $request) {
+                XeDB::beginTransaction();
+
+                try {
+                    $url = $request->get('api_base_url', '');
+                    $auth = $request->get('api_authorization', '');
+                    $configManager = app('xe.config');
+                    $configManager->set(static::getId(), [
+                        'url' => $url,
+                        'auth' => $auth
+                    ]);
+                } catch (\Exception $e) {
+                    XeDB::rollback();
+                    throw $e;
+                }
+
+                XeDB::commit();
+
+                return redirect($this->getSettingsURI());
+            }]);
+        });
     }
 
-    protected function route()
+    public function getSettingsURI()
     {
-        // implement code
-
-        Route::fixed(
-            $this->getId(),
-            function () {
-                Route::get('/', [
-                    'as' => 'team_vega::index','uses' => 'Pikokr\XePlugin\TeamVega\Controller@index'
-                ]);
-            }
-        );
-
+        return route('team_vega.settings');
     }
 
     /**
