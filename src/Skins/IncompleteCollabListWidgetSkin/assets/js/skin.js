@@ -7,6 +7,6 @@ document.querySelectorAll('.incomplete-collab-list-container').forEach(
     el => {
     new Swiper(el, {
         slidesPerView: 3,
-        spaceBetween: 10
+        spaceBetween: 30
     })
 })

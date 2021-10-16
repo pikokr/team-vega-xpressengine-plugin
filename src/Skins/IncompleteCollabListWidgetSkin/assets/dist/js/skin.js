@@ -18,7 +18,7 @@ document.querySelectorAll('.incomplete-collab-list-container').forEach(
 function (el) {
   new swiper__WEBPACK_IMPORTED_MODULE_0__["default"](el, {
     slidesPerView: 3,
-    spaceBetween: 10
+    spaceBetween: 30
   });
 });
 
