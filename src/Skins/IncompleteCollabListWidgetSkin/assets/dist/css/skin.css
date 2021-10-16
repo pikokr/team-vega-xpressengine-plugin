@@ -629,13 +629,32 @@ button.swiper-pagination-bullet {
   src: url("/plugins/team_vega/assets/fonts/Cafe24Ohsquareair.ttf") format("truetype");
   unicode-range: U+0041-005A, U+0061-007A, U+0030-0039, U+AC00-D7A3;
 }
-.incomplete-collab-list-container .slide-item .slide-content-container {
+.incomplete-collab-list .title {
+  position: relative;
+  height: 43px;
+  margin: 0;
+  padding-bottom: 8px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.18);
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 34px;
+}
+.incomplete-collab-list .title span {
+  position: absolute;
+  display: inline-block;
+  padding-bottom: 8px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.9);
+}
+.incomplete-collab-list .incomplete-collab-list-container {
+  margin-top: 10px;
+}
+.incomplete-collab-list .incomplete-collab-list-container .slide-item .slide-content-container {
   padding-bottom: 56.25%;
   position: relative;
   background-position: center;
   background-size: cover;
 }
-.incomplete-collab-list-container .slide-item .slide-content-container .slide-content {
+.incomplete-collab-list .incomplete-collab-list-container .slide-item .slide-content-container .slide-content {
   -webkit-backdrop-filter: brightness(0.7) blur(2px);
           backdrop-filter: brightness(0.7) blur(2px);
   position: absolute;
@@ -654,11 +673,11 @@ button.swiper-pagination-bullet {
   font-family: Cafe24OhSquareair, sans-serif;
   gap: 10px;
 }
-.incomplete-collab-list-container .slide-item .slide-content-container .slide-content .collab-title {
+.incomplete-collab-list .incomplete-collab-list-container .slide-item .slide-content-container .slide-content .collab-title {
   font-size: 24px;
   text-align: center;
 }
-.incomplete-collab-list-container .slide-item .slide-content-container .slide-content .collab-details {
+.incomplete-collab-list .incomplete-collab-list-container .slide-item .slide-content-container .slide-content .collab-details {
   display: flex;
   gap: 10px;
   font-size: 16px;
